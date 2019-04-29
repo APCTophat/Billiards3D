@@ -22,8 +22,15 @@ public class movement : MonoBehaviour
 
        
         
-            rb.AddForce(Hdirect * 500, rb.velocity.y, Vdirect * 500);
+            rb.AddForce(Hdirect * 30, rb.velocity.y, Vdirect * 30);
         
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Got");
+    }
+
+    
 }
