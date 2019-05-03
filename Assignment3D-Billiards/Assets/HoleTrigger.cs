@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class trigger : MonoBehaviour
+public class HoleTrigger : MonoBehaviour
 {
-   
-    
+    public GameObject PlayerPrefab
+        ;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("NOW");
+        Destroy(other.gameObject);
     }
 }
