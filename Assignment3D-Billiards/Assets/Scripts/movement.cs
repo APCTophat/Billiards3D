@@ -38,8 +38,9 @@ public class movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddRelativeForce(Aimer.transform.position * speed);
+            rb.AddForce(transform.forward * speed);
             rend.enabled = false;
+      
 
             
         }
@@ -74,7 +75,7 @@ public class movement : MonoBehaviour
        
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            transform.eulerAngles = new Vector3(0, 0, 90);
+            //transform.eulerAngles = new Vector3(0, 0, 90);
             rend.enabled = true;
             isMoving = true;
         }
