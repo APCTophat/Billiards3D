@@ -8,6 +8,14 @@ public class Contraints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.position = new Vector3(Mathf.Clamp(rb.position.x, -1000, 1000), Mathf.Clamp(rb.position.y, 10, 12), Mathf.Clamp(rb.position.z, -1000, 1000));
+        //rb.position = new Vector3(Mathf.Clamp(rb.position.x, -1000, 1000), Mathf.Clamp(rb.position.y, 10, 12), Mathf.Clamp(rb.position.z, -1000, 1000));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Board")
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionY;
+        }
     }
 }
