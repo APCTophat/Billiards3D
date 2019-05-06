@@ -1784,7 +1784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a4a968e2cc9394bbc73c30c1370166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BallPreFab: {fileID: 1765009453, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
+  BallPreFab: {fileID: 1570806980764716674, guid: 903018938a2e7854d974c469e59ac61b,
+    type: 3}
   StartHole: {fileID: 1139926582}
   QuitHole: {fileID: 1053177970}
   H1: {fileID: 164020645}
@@ -2369,7 +2370,8 @@ PrefabInstance:
       propertyPath: H4
       value: 
       objectReference: {fileID: 1446046391}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 375932713, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
 --- !u!1 &1979416206
 GameObject:

@@ -70,7 +70,8 @@ public class movement : MonoBehaviour
         
         if(other.gameObject.name == "QuitHole")
         {
-            Application.Quit();
+            FindObjectOfType<GameManager>().Invoke("Close", 0.5f);
+       
         }
     }
 
