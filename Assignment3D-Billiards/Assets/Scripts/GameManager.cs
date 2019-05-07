@@ -7,19 +7,24 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject BallPreFab;
-    public GameObject StartHole;
-    public GameObject QuitHole;
-    public GameObject H1;
-    public GameObject H2;
-    public GameObject H3;
-    public GameObject H4;
 
     public bool inMenu;
 
     // Start is called before the first frame update
     void Start()
     {
-        inMenu = true;
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if(sceneName == "MenuScene")
+        {
+            inMenu = true;
+        }
+        else
+        {
+            inMenu = false;
+        }
+        
     }
 
     // Update is called once per frame
@@ -31,23 +36,21 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MenuScene");
         }
        
     }
 
     void Begin()
     {
-        Vector3 position = new Vector3(0, 13, 0);
-       Instantiate(BallPreFab, position, Quaternion.identity);
+        SceneManager.LoadScene("MainScene");
+       // Vector3 position = new Vector3(0, 13, 0);
+       //Instantiate(BallPreFab, position, Quaternion.identity);
     }
 
     void Close()
     {
-        if(inMenu == true)
-        {
-            Application.Quit();
-        }
+        Application.Quit();
     }
 
    

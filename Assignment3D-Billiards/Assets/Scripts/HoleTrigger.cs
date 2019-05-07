@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HoleTrigger : MonoBehaviour
 {
@@ -18,7 +19,17 @@ public class HoleTrigger : MonoBehaviour
 
     private void Start()
     {
-        inMenu = true;
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "MenuScene")
+        {
+            inMenu = true;
+        }
+        else
+        {
+            inMenu = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,16 +38,10 @@ public class HoleTrigger : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Help");
             Vector3 position = new Vector3(32, 12, 0);
            Instantiate(PlayerPrefab, position, Quaternion.Euler(0 , 0 , 90));
 
-            if(gameObject.name == "StartHole")
-            {
-                Debug.Log("Start");
-                inMenu = false;
-                
-            }
+            
         }
 
         if(inMenu == false)

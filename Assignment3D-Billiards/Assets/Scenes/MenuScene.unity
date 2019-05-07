@@ -879,7 +879,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 834595802}
-  - component: {fileID: 834595801}
   - component: {fileID: 834595800}
   m_Layer: 0
   m_Name: GameManager
@@ -909,20 +908,6 @@ MonoBehaviour:
   H3: {fileID: 1074207388}
   H4: {fileID: 1177500691}
   inMenu: 0
---- !u!114 &834595801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834595799}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f359edbbea9ee644a7221cf30e6c581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BallPreFab: {fileID: 1570806980764716674, guid: 903018938a2e7854d974c469e59ac61b,
-    type: 3}
 --- !u!4 &834595802
 Transform:
   m_ObjectHideFlags: 0

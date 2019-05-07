@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class movement : MonoBehaviour
 {
@@ -8,13 +9,9 @@ public class movement : MonoBehaviour
     public Rigidbody rb;
     public Renderer rend;
 
-    public GameObject StartHole;
-    public GameObject QuitHole;
-    public GameObject H1;
-    public GameObject H2;
-    public GameObject H3;
-    public GameObject H4;
+    //public GameObject StartHole;
 
+    public bool inMenu;
     public bool isMoving;
     public bool Contact;
 
@@ -29,7 +26,17 @@ public class movement : MonoBehaviour
         isMoving = false;
         Contact = false;
 
-       
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "MenuScene")
+        {
+            inMenu = true;
+        }
+        else
+        {
+            inMenu = false;
+        }
     }
 
     // Update is called once per frame
@@ -72,22 +79,21 @@ public class movement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "StartHole")
+        if(inMenu == true)
         {
+            if (other.gameObject.name == "StartHole")
+            {
 
-            FindObjectOfType<GameManager>().Invoke("Begin", 0.5f);
-            StartHole.GetComponent<HoleTrigger>().inMenu = false;
-            QuitHole.GetComponent<HoleTrigger>().inMenu = false;
-            H1.GetComponent<HoleTrigger>().inMenu = false;
-            H2.GetComponent<HoleTrigger>().inMenu = false;
-            H3.GetComponent<HoleTrigger>().inMenu = false;
-            H4.GetComponent<HoleTrigger>().inMenu = false;
-        }
-        
-        if(other.gameObject.name == "QuitHole")
-        {
-            FindObjectOfType<GameManager>().Invoke("Close", 0.5f);
-       
+                FindObjectOfType<GameManager>().Invoke("Begin", 0.5f);
+                //StartHole.GetComponent<HoleTrigger>().inMenu = false;
+
+            }
+
+            if (other.gameObject.name == "QuitHole")
+            {
+                FindObjectOfType<GameManager>().Invoke("Close", 0.5f);
+
+            }
         }
     }
 
