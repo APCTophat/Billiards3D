@@ -8,6 +8,13 @@ public class movement : MonoBehaviour
     public Rigidbody rb;
     public Renderer rend;
 
+    public GameObject StartHole;
+    public GameObject QuitHole;
+    public GameObject H1;
+    public GameObject H2;
+    public GameObject H3;
+    public GameObject H4;
+
     public bool isMoving;
     public bool Contact;
 
@@ -21,6 +28,8 @@ public class movement : MonoBehaviour
         rend = Aimer.GetComponent<Renderer>();
         isMoving = false;
         Contact = false;
+
+       
     }
 
     // Update is called once per frame
@@ -65,7 +74,14 @@ public class movement : MonoBehaviour
     {
         if(other.gameObject.name == "StartHole")
         {
+
             FindObjectOfType<GameManager>().Invoke("Begin", 0.5f);
+            StartHole.GetComponent<HoleTrigger>().inMenu = false;
+            QuitHole.GetComponent<HoleTrigger>().inMenu = false;
+            H1.GetComponent<HoleTrigger>().inMenu = false;
+            H2.GetComponent<HoleTrigger>().inMenu = false;
+            H3.GetComponent<HoleTrigger>().inMenu = false;
+            H4.GetComponent<HoleTrigger>().inMenu = false;
         }
         
         if(other.gameObject.name == "QuitHole")

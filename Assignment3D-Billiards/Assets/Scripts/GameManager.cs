@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,12 +29,17 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+       
     }
 
     void Begin()
     {
         Vector3 position = new Vector3(0, 13, 0);
-        Instantiate(BallPreFab, position, Quaternion.identity);
+       Instantiate(BallPreFab, position, Quaternion.identity);
     }
 
     void Close()
@@ -40,10 +47,8 @@ public class GameManager : MonoBehaviour
         if(inMenu == true)
         {
             Application.Quit();
-
         }
-       
     }
 
-    
+   
 }
