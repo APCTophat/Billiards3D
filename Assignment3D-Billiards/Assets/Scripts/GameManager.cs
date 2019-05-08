@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
             inMenu = false;
         }
         
+
+        if(inMenu == false)
+        {
+            Vector3 position = new Vector3(0, 13, 0);
+            Instantiate(BallPreFab, position, Quaternion.identity);
+        }
+
+
     }
 
     // Update is called once per frame
@@ -44,8 +52,7 @@ public class GameManager : MonoBehaviour
     void Begin()
     {
         SceneManager.LoadScene("MainScene");
-       // Vector3 position = new Vector3(0, 13, 0);
-       //Instantiate(BallPreFab, position, Quaternion.identity);
+      
     }
 
     void Close()
