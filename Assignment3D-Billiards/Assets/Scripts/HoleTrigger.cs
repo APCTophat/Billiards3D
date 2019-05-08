@@ -32,16 +32,14 @@ public class HoleTrigger : MonoBehaviour
         }
     }
 
+   
     private void OnTriggerEnter(Collider other)
     {
         
 
         if (other.gameObject.tag == "Player")
         {
-            Vector3 position = new Vector3(32, 12, 0);
-           Instantiate(PlayerPrefab, position, Quaternion.Euler(0 , 0 , 90));
-
-            
+            Invoke("ReloadPLayer", 1);
         }
 
         if(inMenu == false)
@@ -52,5 +50,11 @@ public class HoleTrigger : MonoBehaviour
 
 
         Destroy(other.gameObject);
+    }
+
+    void ReloadPLayer()
+    {
+        Vector3 position = new Vector3(32, 12, 0);
+        Instantiate(PlayerPrefab, position, Quaternion.Euler(0, 0, 90));
     }
 }

@@ -6,11 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
+    public GameObject Starthole;
+    public GameObject Quithole;
+    public GameObject H1;
+    public GameObject H2;
+    public GameObject H3;
+    public GameObject H4;
+
     public Text P1_TotalScore;
     public Text P2_TotalScore;
+    public Text StartText;
+    public Text QuitText;
 
     public int P1_totalScore;
     public int P2_totalScore;
+    public int StartHole_Score;
 
     public bool inMenu;
 
@@ -31,13 +41,14 @@ public class Score : MonoBehaviour
 
         if(inMenu == false)
         {
-            GetComponent<Text>().enabled = true;
+            StartText.GetComponent<Text>().enabled = false;
+            QuitText.GetComponent<Text>().enabled = false;
         }
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        StartHole_Score = Starthole.GetComponent<HoleTrigger>().score;
     }
 }
