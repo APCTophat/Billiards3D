@@ -292,11 +292,22 @@ MonoBehaviour:
   Aimer: {fileID: 209620710}
   rb: {fileID: 1765009454}
   rend: {fileID: 0}
+  inMenu: 0
   isMoving: 0
   Contact: 0
+  canShoot: 0
+  DisplayMax: 0
   speed: 10000
   RotateSpeed: 1
   StopSpeed: 1
+  maxSpeed: 0
+  minSpeed: 0
+  speedFraction: 0
+  ChangeColour: 0
+  OnWall: 0
+  PowerBar: {fileID: 0}
+  PB_Backdrop: {fileID: 0}
+  MaxPower: {fileID: 0}
 --- !u!54 &1765009454
 Rigidbody:
   m_ObjectHideFlags: 0

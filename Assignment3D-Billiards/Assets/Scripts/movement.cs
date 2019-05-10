@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class movement : MonoBehaviour
 {
@@ -14,17 +15,36 @@ public class movement : MonoBehaviour
     public bool inMenu;
     public bool isMoving;
     public bool Contact;
+    public bool canShoot;
+    public bool DisplayMax;
 
     public float speed;
     public float RotateSpeed;
     public float StopSpeed;
+    public float maxSpeed;
+    public float minSpeed;
+    public float speedFraction;
+    public float ChangeColour;
+    public float OnWall;
 
+    public Image PowerBar;
+    public Image PB_Backdrop;
+    public Text MaxPower;
+    
    
     void Start()
     {
         rend = Aimer.GetComponent<Renderer>();
         isMoving = false;
         Contact = false;
+        canShoot = true;
+        maxSpeed = 10000;
+        minSpeed = 1000;
+        speed = minSpeed;
+        PB_Backdrop.enabled = false;
+        MaxPower.enabled = false;
+        DisplayMax = false;
+        OnWall = 1;
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
@@ -51,28 +71,79 @@ public class movement : MonoBehaviour
         {
             transform.Rotate(-RotateSpeed, 0, 0, Space.Self);
         }
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
+    
+        if (canShoot == true)
+            {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                speed = speed + 2000 * Time.deltaTime;
+                if (speed >= maxSpeed)
+                {
+                    speed = maxSpeed;
+                }
+            }
+            }
+        if(canShoot == true)
         {
-            rb.AddForce(transform.forward * speed);
-            rend.enabled = false;
-            Contact = false;
-
-            
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                rb.AddForce(transform.forward * speed);
+                rend.enabled = false;
+                Contact = false;
+            }
         }
+       
 
         if (rb.velocity.magnitude > StopSpeed && isMoving == true)
         {
-            
+            canShoot = false;
             isMoving = false;
+            PB_Backdrop.enabled = false;
+            MaxPower.enabled = false;
+            PowerBar.enabled = false;
         }
 
+        speedFraction = speed / maxSpeed;
+        PowerBar.fillAmount = speedFraction;
+          if (speedFraction == 1)
+            {
+                if (DisplayMax == false)
+                {
+                    PB_Backdrop.enabled = true;
+                    MaxPower.enabled = true;
+                    DisplayMax = true;
+                }
 
-        //Vector3 targetDir = Aimer.transform.position - transform.position;
-        //float angle = Vector3.Angle(targetDir, transform.forward);
-        //Debug.Log(angle);
 
+                ChangeColour -= Time.deltaTime;
+                if (ChangeColour <= 0)
+                {
+                    ChangeColour = 0.50f;
+                }
+
+
+                if (ChangeColour <= 0.25)
+                {
+                    MaxPower.GetComponent<Text>().color = new Color(1, 1, 1, 1);
+                }
+                else
+                {
+                    MaxPower.GetComponent<Text>().color = new Color(1, 0, 0, 1);
+                }
+            }
+        
+       
+
+
+       if(Contact == true)
+        {
+            OnWall -= Time.deltaTime; 
+            if(OnWall <= 0 && rb.velocity.magnitude <= StopSpeed)
+            {
+                Contact = false;
+                OnWall = 1;
+            }
+        }
         Stop();
         PlayerRestriction();
     }
@@ -107,7 +178,7 @@ public class movement : MonoBehaviour
         if (collision.gameObject.tag != "Board")
         {
             Contact = true;
-            //rb.AddForce((transform.forward * rb.velocity.magnitude) / 2);
+           
         }
        
     }
@@ -123,15 +194,16 @@ public class movement : MonoBehaviour
 
     public void Stop()
     {
-
-    
         if (rb.velocity.magnitude <= StopSpeed && isMoving == false && Contact == false)
         {
-       
+            speed = minSpeed;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rend.enabled = true;
             isMoving = true;
+            canShoot = true;
+            DisplayMax = false;
+            PowerBar.enabled = true;
         }
     }
 }

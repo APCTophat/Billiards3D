@@ -21,6 +21,11 @@ public class Score : MonoBehaviour
     public int P1_totalScore;
     public int P2_totalScore;
     public int StartHole_Score;
+    public int QuitHole_Score;
+    public int H1_Score;
+    public int H2_Score;
+    public int H3_Score;
+    public int H4_Score;
 
     public bool inMenu;
 
@@ -49,6 +54,19 @@ public class Score : MonoBehaviour
     
     void Update()
     {
-        StartHole_Score = Starthole.GetComponent<HoleTrigger>().score;
+        if (inMenu == false)
+        {
+            StartHole_Score = Starthole.GetComponent<HoleTrigger>().score;
+            QuitHole_Score = Quithole.GetComponent<HoleTrigger>().score;
+            H1_Score = H1.GetComponent<HoleTrigger>().score;
+            H2_Score = H2.GetComponent<HoleTrigger>().score;
+            H3_Score = H3.GetComponent<HoleTrigger>().score;
+            H4_Score = H4.GetComponent<HoleTrigger>().score;
+
+            P1_totalScore = StartHole_Score + QuitHole_Score + H1_Score + H2_Score + H3_Score + H4_Score;
+
+            P1_TotalScore.text = ("Player 1:" + P1_totalScore.ToString());
+        }
+      
     }
 }
