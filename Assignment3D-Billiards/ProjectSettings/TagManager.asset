@@ -8,6 +8,11 @@ TagManager:
   - Player_2
   - Board
   - Wall
+  - PowerBar
+  - Backdrop
+  - Maxpower
+  - Canvas
+  - POWERBAR
   layers:
   - Default
   - TransparentFX

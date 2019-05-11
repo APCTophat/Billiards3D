@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 324746909}
   m_Layer: 5
   m_Name: PowerBar
-  m_TagString: Untagged
+  m_TagString: PowerBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,7 +1121,7 @@ GameObject:
   - component: {fileID: 778955766}
   m_Layer: 5
   m_Name: Backdrop
-  m_TagString: Untagged
+  m_TagString: Backdrop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2008,7 +2008,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallPreFab: {fileID: 1570806980764716674, guid: 903018938a2e7854d974c469e59ac61b,
     type: 3}
+  rb: {fileID: 0}
   inMenu: 0
+  DisplayMax: 0
+  speed: 0
+  speedFraction: 0
+  ChangeColour: 0
+  PowerBar: {fileID: 324746909}
+  PB_Backdrop: {fileID: 778955766}
+  MaxPower: {fileID: 1988483122}
 --- !u!1 &1318670082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,7 +2614,7 @@ GameObject:
   - component: {fileID: 1771087556}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2898,7 +2906,7 @@ GameObject:
   - component: {fileID: 1988483122}
   m_Layer: 5
   m_Name: Max_Power
-  m_TagString: Untagged
+  m_TagString: Maxpower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3044,7 +3052,7 @@ GameObject:
   - component: {fileID: 2049121633}
   m_Layer: 5
   m_Name: powerbar
-  m_TagString: Untagged
+  m_TagString: POWERBAR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

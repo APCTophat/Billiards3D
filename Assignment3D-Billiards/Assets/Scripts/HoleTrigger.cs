@@ -39,15 +39,13 @@ public class HoleTrigger : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            Invoke("ReloadPLayer", 1);
+            Invoke("ReloadPLayer", 0);
         }
 
         if(inMenu == false)
         {
             score = score + 1;
         }
-
-
 
         Destroy(other.gameObject);
     }
