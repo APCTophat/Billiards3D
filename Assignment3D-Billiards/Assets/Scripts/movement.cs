@@ -25,6 +25,8 @@ public class movement : MonoBehaviour
     public float minSpeed;
     public float OnWall;
 
+    public Light Halo;
+
    
     
    
@@ -40,6 +42,7 @@ public class movement : MonoBehaviour
         speed = minSpeed;
         OnWall = 1;
         isPlayer_1 = true;
+        Halo.GetComponent<Light>().enabled = false;
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
@@ -99,7 +102,8 @@ public class movement : MonoBehaviour
         if (collision.gameObject.tag != "Board")
         {
             Contact = true;
-           
+            Halo.GetComponent<Light>().enabled = true;
+
         }
        
     }
@@ -109,7 +113,7 @@ public class movement : MonoBehaviour
         if (collision.gameObject.tag != "Board")
         {
             Contact = false;
-            
+            Invoke("TurnOffHalo", 0.5f);
         }
     }
 
@@ -200,5 +204,9 @@ public class movement : MonoBehaviour
     {
         isPlayer_1 = !isPlayer_1;
 
+    }
+    void TurnOffHalo()
+    {
+        Halo.GetComponent<Light>().enabled = false;
     }
 }
