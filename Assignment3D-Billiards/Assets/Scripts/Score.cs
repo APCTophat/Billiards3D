@@ -89,13 +89,7 @@ public class Score : MonoBehaviour
 
             P2_TotalScore.text = ("Player 2:" + P2_totalScore.ToString());
         }
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-
-            Invoke("Did_P1_WIn", 0);
-
-
-        }
+     
     }
 
     void Did_P1_WIn()

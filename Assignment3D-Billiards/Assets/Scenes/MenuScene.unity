@@ -3467,8 +3467,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 63.000008, y: 3.2000122}
-  m_SizeDelta: {x: 285, y: 74.6}
+  m_AnchoredPosition: {x: 63.000008, y: -16.94}
+  m_SizeDelta: {x: 285, y: 114.87}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1845261805
 MonoBehaviour:
@@ -3507,7 +3507,11 @@ MonoBehaviour:
 
     Arrow Key Right - rotate clockwise
 
-    Spacebar- hold to power, release to shoot'
+    Spacebar- hold to power, release to shoot
+
+    R-reset to menu
+
+    ESC- Quit'
 --- !u!222 &1845261806
 CanvasRenderer:
   m_ObjectHideFlags: 0
