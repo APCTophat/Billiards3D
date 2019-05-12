@@ -59,14 +59,7 @@ public class HoleTrigger : MonoBehaviour
             }
             if(other.gameObject.tag == "FINALBALL")
             {
-                if(isPlayer_1 == false)
-                {
-                    FindObjectOfType<Score>().Invoke("Did_P1_WIn", 0.5f);
-                }
-                if (isPlayer_1 == true)
-                {
-                    FindObjectOfType<Score>().Invoke("Did_P2_WIn", 0.5f);
-                }
+                    FindObjectOfType<Score>().Invoke("Did_P1_WIn", 0.5f);       
             }
             
         }

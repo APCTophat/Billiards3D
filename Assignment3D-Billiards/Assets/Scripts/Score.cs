@@ -35,10 +35,13 @@ public class Score : MonoBehaviour
     public int H4_Score_2;
 
     public bool inMenu;
+    public bool isPlayer_1;
 
-   
+
+
     void Start()
     {
+        isPlayer_1 = true;
         Winner.GetComponent<Text>().enabled = false;
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
@@ -86,38 +89,56 @@ public class Score : MonoBehaviour
 
             P2_TotalScore.text = ("Player 2:" + P2_totalScore.ToString());
         }
-      
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+
+            Invoke("Did_P1_WIn", 0);
+
+
+        }
     }
 
     void Did_P1_WIn()
     {
-        if(P1_totalScore <= 7)
+        if(isPlayer_1 == true)
         {
-            Winner.GetComponent<Text>().enabled = true;
-            Winner.text = ("Player 2 Wins!");
-            Winner.color = new Color(0.2f, 0.3f, 0.4f);
+            if (P2_totalScore <= 7)
+            {
+                Winner.GetComponent<Text>().enabled = true;
+                Winner.text = ("Player 1 Wins!");
+
+            }
+            if (P2_totalScore >= 7)
+            {
+                Winner.GetComponent<Text>().enabled = true;
+                Winner.text = ("Player 2 Wins!");
+
+            }
         }
-        if (P1_totalScore >= 7)
+        if(isPlayer_1 == false)
         {
-            Winner.GetComponent<Text>().enabled = true;
-            Winner.text = ("Player 1 Wins!");
-            Winner.color = new Color(0, 0, 1, 1);
+            if (P1_totalScore <= 7)
+            {
+                Winner.GetComponent<Text>().enabled = true;
+                Winner.text = ("Player 2 Wins!");
+
+            }
+            if (P1_totalScore >= 7)
+            {
+                Winner.GetComponent<Text>().enabled = true;
+                Winner.text = ("Player 1 Wins!");
+            }
         }
+        
+
+        
     }
 
-    void Did_P2_WIn()
+  
+    
+    void SwitchPlayer()
     {
-        if (P2_totalScore <= 7)
-        {
-            Winner.GetComponent<Text>().enabled = true;
-            Winner.text = ("Player 1 Wins!");
-            Winner.color = new Color(0,0,1,1); 
-        }
-        if (P2_totalScore >= 7)
-        {
-            Winner.GetComponent<Text>().enabled = true;
-            Winner.text = ("Player 2 Wins!");
-            Winner.color = new Color(0.2f, 0.3f, 0.4f);
-        }
+        isPlayer_1 = !isPlayer_1;
+
     }
 }

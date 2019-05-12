@@ -58,7 +58,7 @@ public class movement : MonoBehaviour
     
     void FixedUpdate()
     {
-        HoleTriggerSwitch();
+        
         PlayerMovement();
         Stop();
         PlayerRestriction();
@@ -171,7 +171,9 @@ public class movement : MonoBehaviour
                 Contact = false;
                 FindObjectOfType<GameManager>().Invoke("SwitchPlayer", 0.1f);
                 Invoke("SwitchPlayer", 0.1f);
-                Invoke("HoleTriggerSwitch", 0.1f);
+                FindObjectOfType<Score>().Invoke("SwitchPlayer", 0.1f);
+                
+                
             }
         }
         if (canShoot == true)
@@ -193,9 +195,5 @@ public class movement : MonoBehaviour
     {
         isPlayer_1 = !isPlayer_1;
 
-    }
-    void HoleTriggerSwitch()
-    {
-        FindObjectOfType<HoleTrigger>().Invoke("SwitchPlayer", 0.1f);
     }
 }
