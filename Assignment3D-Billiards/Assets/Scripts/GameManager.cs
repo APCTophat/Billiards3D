@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             speed = 1000;
+           
         }
 
             speedFraction = speed / 10000;
@@ -132,4 +133,9 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    void SwitchPlayer()
+    {
+        isPlayer_1 = !isPlayer_1;
+        
+    }
 }

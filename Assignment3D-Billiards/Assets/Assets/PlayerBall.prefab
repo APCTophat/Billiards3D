@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 209620712}
   m_Layer: 0
   m_Name: Arrow_1
-  m_TagString: Untagged
+  m_TagString: Aimer_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 1511116824}
   m_Layer: 0
   m_Name: Arrow_2
-  m_TagString: Untagged
+  m_TagString: Aimer_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511116822}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -289,25 +289,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299d449e5d47e3945a24cb8721fc1f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Aimer: {fileID: 209620710}
+  AimerP1: {fileID: 209620710}
+  AimerP2: {fileID: 1511116822}
   rb: {fileID: 1765009454}
-  rend: {fileID: 0}
+  rend_P1: {fileID: 209620713}
+  rend_P2: {fileID: 1511116825}
   inMenu: 0
   isMoving: 0
   Contact: 0
   canShoot: 0
-  DisplayMax: 0
+  isPlayer_1: 0
   speed: 10000
   RotateSpeed: 1
   StopSpeed: 1
   maxSpeed: 0
   minSpeed: 0
-  speedFraction: 0
-  ChangeColour: 0
   OnWall: 0
-  PowerBar: {fileID: 0}
-  PB_Backdrop: {fileID: 0}
-  MaxPower: {fileID: 0}
 --- !u!54 &1765009454
 Rigidbody:
   m_ObjectHideFlags: 0

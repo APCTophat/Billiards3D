@@ -39,6 +39,7 @@ public class movement : MonoBehaviour
         minSpeed = 1000;
         speed = minSpeed;
         OnWall = 1;
+        isPlayer_1 = true;
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
@@ -57,7 +58,7 @@ public class movement : MonoBehaviour
     
     void FixedUpdate()
     {
-        
+        HoleTriggerSwitch();
         PlayerMovement();
         Stop();
         PlayerRestriction();
@@ -149,6 +150,7 @@ public class movement : MonoBehaviour
 
     public void PlayerMovement()
     {
+        
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(RotateSpeed, 0, 0, Space.Self);
@@ -167,11 +169,14 @@ public class movement : MonoBehaviour
                 rend_P1.enabled = false;
                 rend_P2.enabled = false;
                 Contact = false;
+                FindObjectOfType<GameManager>().Invoke("SwitchPlayer", 0.1f);
+                Invoke("SwitchPlayer", 0.1f);
+                Invoke("HoleTriggerSwitch", 0.1f);
             }
         }
         if (canShoot == true)
         {
-           //GameManager.GetComponent<CreateEnemies>().BossOnScreen = false;
+           
             if (Input.GetKey(KeyCode.Space))
             {
                
@@ -183,5 +188,14 @@ public class movement : MonoBehaviour
             }
         }
         
+    }
+    void SwitchPlayer()
+    {
+        isPlayer_1 = !isPlayer_1;
+
+    }
+    void HoleTriggerSwitch()
+    {
+        FindObjectOfType<HoleTrigger>().Invoke("SwitchPlayer", 0.1f);
     }
 }

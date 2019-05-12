@@ -9,12 +9,16 @@ public class HoleTrigger : MonoBehaviour
     public GameObject PlayerPrefab;
 
     public bool inMenu;
+    public bool isPlayer_1;
 
     public Text startText;
     public Text quitText;
     public Text scoreText;
 
-    public int score;
+    public int score_P1;
+    public int score_P2;
+
+
 
 
     private void Start()
@@ -30,6 +34,7 @@ public class HoleTrigger : MonoBehaviour
         {
             inMenu = false;
         }
+        isPlayer_1 = true;
     }
 
    
@@ -42,9 +47,28 @@ public class HoleTrigger : MonoBehaviour
             Invoke("ReloadPLayer", 0);
         }
 
-        if(inMenu == false)
+        if(inMenu == false && other.gameObject.tag != "Player")
         {
-            score = score + 1;
+            if(other.gameObject.tag == "Blue")
+            {
+                score_P1 = score_P1 + 1;
+            }
+            if(other.gameObject.tag == "Orange")
+            {
+                score_P2 = score_P2 + 1;
+            }
+            if(other.gameObject.tag == "FINALBALL")
+            {
+                if(isPlayer_1 == false)
+                {
+                    FindObjectOfType<Score>().Invoke("Did_P1_WIn", 0.5f);
+                }
+                if (isPlayer_1 == true)
+                {
+                    FindObjectOfType<Score>().Invoke("Did_P2_WIn", 0.5f);
+                }
+            }
+            
         }
 
         Destroy(other.gameObject);
@@ -54,5 +78,12 @@ public class HoleTrigger : MonoBehaviour
     {
         Vector3 position = new Vector3(32, 12, 0);
         Instantiate(PlayerPrefab, position, Quaternion.Euler(0, 0, 90));
+    }
+
+
+    void SwitchPlayer()
+    {
+        isPlayer_1 = !isPlayer_1;
+
     }
 }

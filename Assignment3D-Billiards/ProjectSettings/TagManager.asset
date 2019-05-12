@@ -13,6 +13,11 @@ TagManager:
   - Maxpower
   - Canvas
   - POWERBAR
+  - Aimer_1
+  - Aimer_2
+  - Blue
+  - Orange
+  - FINALBALL
   layers:
   - Default
   - TransparentFX

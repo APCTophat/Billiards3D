@@ -458,10 +458,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1765009453, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
   inMenu: 0
+  isPlayer_1: 0
   startText: {fileID: 0}
   quitText: {fileID: 0}
   scoreText: {fileID: 0}
-  score: 0
+  score_P1: 0
+  score_P2: 0
 --- !u!1 &167532783
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,8 +926,36 @@ PrefabInstance:
       propertyPath: MaxPower
       value: 
       objectReference: {fileID: 1988483122}
+    - target: {fileID: 1765009455, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
+      propertyPath: rend_P1
+      value: 
+      objectReference: {fileID: 551233795}
+    - target: {fileID: 1765009455, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
+      propertyPath: rend_P2
+      value: 
+      objectReference: {fileID: 551233794}
+    - target: {fileID: 1765009455, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
+      propertyPath: AimerP1
+      value: 
+      objectReference: {fileID: 1044645353}
+    - target: {fileID: 1765009455, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
+      propertyPath: AimerP2
+      value: 
+      objectReference: {fileID: 1468482655}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
+--- !u!23 &551233794 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1511116825, guid: 64d501c25d38a6a4a84d3715b13c20a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 551233793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &551233795 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 209620713, guid: 64d501c25d38a6a4a84d3715b13c20a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 551233793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &669323030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1576,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013073485}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1044645353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 209620710, guid: 64d501c25d38a6a4a84d3715b13c20a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 551233793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1053177970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,10 +1689,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1765009453, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
   inMenu: 0
+  isPlayer_1: 0
   startText: {fileID: 0}
   quitText: {fileID: 0}
   scoreText: {fileID: 0}
-  score: 0
+  score_P1: 0
+  score_P2: 0
 --- !u!1 &1062115710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,10 +1838,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1765009453, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
   inMenu: 0
+  isPlayer_1: 0
   startText: {fileID: 0}
   quitText: {fileID: 0}
   scoreText: {fileID: 0}
-  score: 0
+  score_P1: 0
+  score_P2: 0
 --- !u!1 &1159479712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2025,7 @@ MonoBehaviour:
   P2_TotalScore: {fileID: 32516426}
   StartText: {fileID: 1364441500}
   QuitText: {fileID: 1828914175}
+  Winner: {fileID: 2045015172}
   P1_totalScore: 0
   P2_totalScore: 0
   StartHole_Score: 0
@@ -1993,6 +2034,12 @@ MonoBehaviour:
   H2_Score: 0
   H3_Score: 0
   H4_Score: 0
+  StartHole_Score_2: 0
+  QuitHole_Score_2: 0
+  H1_Score_2: 0
+  H2_Score_2: 0
+  H3_Score_2: 0
+  H4_Score_2: 0
   inMenu: 0
 --- !u!114 &1246525193
 MonoBehaviour:
@@ -2008,9 +2055,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallPreFab: {fileID: 1570806980764716674, guid: 903018938a2e7854d974c469e59ac61b,
     type: 3}
+  Player: {fileID: 0}
   rb: {fileID: 0}
   inMenu: 0
   DisplayMax: 0
+  isPlayer_1: 0
   speed: 0
   speedFraction: 0
   ChangeColour: 0
@@ -2124,10 +2173,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1765009453, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
   inMenu: 0
+  isPlayer_1: 0
   startText: {fileID: 0}
   quitText: {fileID: 0}
   scoreText: {fileID: 0}
-  score: 0
+  score_P1: 0
+  score_P2: 0
 --- !u!1 &1364441498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,10 +2431,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1765009453, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
   inMenu: 0
+  isPlayer_1: 0
   startText: {fileID: 0}
   quitText: {fileID: 0}
   scoreText: {fileID: 0}
-  score: 0
+  score_P1: 0
+  score_P2: 0
 --- !u!1 &1454148735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2475,6 +2528,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454148735}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1468482655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1511116822, guid: 64d501c25d38a6a4a84d3715b13c20a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 551233793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1500014810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,6 +2754,7 @@ RectTransform:
   - {fileID: 32516425}
   - {fileID: 1364441499}
   - {fileID: 2049121633}
+  - {fileID: 2045015171}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2889,10 +2949,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1765009453, guid: 64d501c25d38a6a4a84d3715b13c20a2, type: 3}
   inMenu: 0
+  isPlayer_1: 0
   startText: {fileID: 0}
   quitText: {fileID: 0}
   scoreText: {fileID: 0}
-  score: 0
+  score_P1: 0
+  score_P2: 0
 --- !u!1 &1988483120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,6 +3103,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2045015170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045015171}
+  - component: {fileID: 2045015173}
+  - component: {fileID: 2045015172}
+  m_Layer: 5
+  m_Name: Winner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2045015171
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045015170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1771087559}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.19999105, y: 6.600001}
+  m_SizeDelta: {x: 206.7, y: 119.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2045015172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045015170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b58ff7a004587c64fbbffadd80ba4113, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &2045015173
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045015170}
+  m_CullTransparentMesh: 0
 --- !u!1 &2049121632
 GameObject:
   m_ObjectHideFlags: 0
