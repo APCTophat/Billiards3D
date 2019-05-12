@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public Image PowerBar;
     public Image PB_Backdrop;
     public Text MaxPower;
+    public Image RuleBackDrop;
+    public Text Rules;
+
 
 
     void Start()
@@ -47,6 +50,9 @@ public class GameManager : MonoBehaviour
         MaxPower.enabled = false;
         DisplayMax = false;
         isPlayer_1 = true;
+
+        Rules.GetComponent<Text>().enabled = false;
+        RuleBackDrop.GetComponent<Image>().enabled = false;
     }
 
     
@@ -59,6 +65,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("MenuScene");
+        }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            Rules.GetComponent<Text>().enabled = false;
+            RuleBackDrop.GetComponent<Image>().enabled = false;
         }
         Player = GameObject.FindGameObjectWithTag("Player");
         rb = Player.GetComponent<Rigidbody>();
@@ -74,6 +85,12 @@ public class GameManager : MonoBehaviour
     void Close()
     {
         Application.Quit();
+    }
+    void ShowRules()
+    {
+        Rules.GetComponent<Text>().enabled = true;
+
+        RuleBackDrop.GetComponent<Image>().enabled = true;
     }
 
   void PowerIndicator()

@@ -81,6 +81,11 @@ public class movement : MonoBehaviour
                 FindObjectOfType<GameManager>().Invoke("Close", 0.5f);
 
             }
+            if (other.gameObject.name == "Hole (2)")
+            {
+                FindObjectOfType<GameManager>().Invoke("ShowRules", 0.5f);
+
+            }
         }
     }
 
